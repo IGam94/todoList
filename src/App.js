@@ -22,10 +22,28 @@ class App extends React.Component{
       [e.target.name]:e.target.value
     });
   }
-  daytimeChange = (e) => {
-    e.target.value=e.target.Moment._d;
+  startDateSet = (KeyboardDatePicker) => {
+    
     this.setState({
-      [e.target.name]:e.target.value
+      startDate:KeyboardDatePicker._d
+    });
+  }
+  startTimeSet = (KeyboardDatePicker) => {
+    
+    this.setState({
+      startTime:KeyboardDatePicker._d
+    });
+  }
+  endDateSet = (KeyboardDatePicker) => {
+    
+    this.setState({
+      endDate:KeyboardDatePicker._d
+    });
+  }
+  endTimeSet = (KeyboardDatePicker) => {
+    
+    this.setState({
+      endTime:KeyboardDatePicker._d
     });
   }
   render(){
@@ -41,10 +59,9 @@ class App extends React.Component{
           variant="inline"
           format="yyyy/MM/DD"
           margin="normal"
-          
           label="시작 예정일"
           name="startDate"
-          onChange={this.daytimeChange}
+          onChange={this.startDateSet}
           style = {{width:"50%"}}
           KeyboardButtonProps={{
             'aria-larbel':'change date',
@@ -56,12 +73,36 @@ class App extends React.Component{
           variant="inline"
           margin="normal"
           label="시작시간"
-          onChange={(value)=>console.log(value)}
+          onChange={this.startTimeSet}
           style = {{width:"50%"}}
           KeyboardButtonProps={{
             'aria-larbel':'change time',
           }}
     />
+    <KeyboardDatePicker
+          disableToolbar
+          variant="inline"
+          margin="nomarl"
+          format="yyyy/MM/DD"
+          label="종료 예정일"
+          onChange={this.endDateSet}
+          style={{width:'50%'}}
+          KeyboardButtonProps={{
+            'aria-label':'change date',
+          }}
+    />
+    <KeyboardTimePicker
+          margin="inline"
+          label="종료시간"
+          variant="inline"
+          onChange={this.endTimeSet}
+          style={{width:'50%'}}
+          KeyboardButtonProps={{
+            'aria-label':'change time',
+          }}
+          
+    />
+    
        </div>
        <div className="list_area">리스트 영역</div>
        <Typography variant="body2" color="textSecondary" align="center">
