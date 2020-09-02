@@ -47,7 +47,7 @@ class App extends React.Component{
         </List>
        </div>
        <Typography variant="body2" color="textSecondary" align="center">
-         {'Copyright 이주상'+new Date().getFullYear()+'.'}
+         {'Copyright. 이주상'+new Date().getFullYear()+'.'}
        </Typography>
 
       </div>
